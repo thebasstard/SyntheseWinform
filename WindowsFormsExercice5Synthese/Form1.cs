@@ -37,7 +37,11 @@ namespace WindowsFormsExercice5Synthese
 
             listBox1.SelectedItem = "Mensuelle";
 
-            
+            hScrollBar1.Value = 1;
+
+
+
+
 
 
 
@@ -171,6 +175,8 @@ namespace WindowsFormsExercice5Synthese
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 10;
+                hScrollBar1.Minimum = 0;
+                hScrollBar1.Maximum = 209;
             }
 
             if (listBox1.SelectedItem == "Bimestrielle")
@@ -180,6 +186,8 @@ namespace WindowsFormsExercice5Synthese
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 20;
+                hScrollBar1.Minimum = 0;
+                hScrollBar1.Maximum = 219;
             }
 
             if (listBox1.SelectedItem == "Trimestrielle")
@@ -189,6 +197,8 @@ namespace WindowsFormsExercice5Synthese
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 30;
+                hScrollBar1.Minimum = 0;
+                hScrollBar1.Maximum = 229;
             }
 
             if (listBox1.SelectedItem == "Semestrielle")
@@ -198,6 +208,8 @@ namespace WindowsFormsExercice5Synthese
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 60;
+                hScrollBar1.Minimum = 0;
+                hScrollBar1.Maximum = 259;
             }
 
             if (listBox1.SelectedItem == "Annuelle")
@@ -206,7 +218,9 @@ namespace WindowsFormsExercice5Synthese
                 hScrollBar1.Value = (hScrollBar1.Value / 12) * 12;
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
-                hScrollBar1.LargeChange = 120;
+                hScrollBar1.LargeChange = 120;               
+                hScrollBar1.Minimum = 0;
+                hScrollBar1.Maximum = 319;
             }
         }
     }
