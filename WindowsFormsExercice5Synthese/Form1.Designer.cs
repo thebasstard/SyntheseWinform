@@ -213,12 +213,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(341, 182);
+            this.label7.Location = new System.Drawing.Point(374, 187);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "label7";
-            this.label7.Visible = false;
+            this.label7.Text = "0";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
@@ -234,12 +234,12 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(465, 238);
+            this.label9.Location = new System.Drawing.Point(496, 238);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(13, 13);
             this.label9.TabIndex = 15;
-            this.label9.Text = "label9";
-            this.label9.Visible = false;
+            this.label9.Text = "0";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
@@ -270,7 +270,6 @@
             this.label12.Size = new System.Drawing.Size(13, 13);
             this.label12.TabIndex = 18;
             this.label12.Text = "€";
-            this.label12.Visible = false;
             // 
             // Form1
             // 

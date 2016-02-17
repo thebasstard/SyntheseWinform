@@ -15,16 +15,16 @@ namespace WindowsFormsExercice5Synthese
     {
         public Form1()
         {
-            double k = 0;
-            double n = 0;
-            double t = 0;
+            
 
+            //couleur remboursement
             InitializeComponent();
             label9.ForeColor = Color.Red;
             label7.ForeColor = Color.Red;
             label12.ForeColor = Color.Red;
 
-
+            
+            //contenu listbox1
             string[] myList = new string[5];
 
             myList[0] = "Mensuelle";
@@ -35,14 +35,16 @@ namespace WindowsFormsExercice5Synthese
 
             listBox1.Items.AddRange(myList);
 
+            //selection à l'ouverture de la page
             listBox1.SelectedItem = "Mensuelle";
-
             hScrollBar1.Value = 1;
 
+            //saisie utilisateur
+            
 
+            
 
-
-
+            
 
 
         }
@@ -92,7 +94,7 @@ namespace WindowsFormsExercice5Synthese
             {
 
 
-                Regex ReNom = new Regex(@"^[A-Z a-z]+$");
+                Regex ReNom = new Regex(@"^[A-Z a-z-]+$");
 
                 if (ReNom.IsMatch(textBox1.Text))
                 {
@@ -103,10 +105,7 @@ namespace WindowsFormsExercice5Synthese
                 }
                 else
                 {
-                    textBox1.BackColor = Color.White;
-                    label10.Visible = true;
-                    label10.ForeColor = Color.Red;
-                    label10.Text = "Erreur";
+                    label10.Visible = false;
                 }
                
             }
@@ -123,20 +122,41 @@ namespace WindowsFormsExercice5Synthese
             {
                 MessageBox.Show("Erreur de saisie du capital");
             }
-            else
-            {
-                MessageBox.Show("Saisie validée");
-            }
 
-           
+            //variables
+            double k;
+            double n = 0;
+            double t = 0;
+            double t2 = 1 - t;
+
+            //saisie utilisateur
+            k = Convert.ToDouble(textBox2.Text);
+
+            //calcul du capital
+            double MontantRemboursement = (k * t) / (1 - Math.Pow(t2, (-n)));
+
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             textBox1.Clear();
             textBox2.Clear();
-            label7.Text = "";
-            label9.Text = "";
+            label7.Text = "0";
+            label9.Text = "0";
+            label10.Visible = false;
+            label11.Visible = false;
+            listBox1.SelectedItem = "Mensuelle";
+            hScrollBar1.Value = 1;
+            radioButton1.Checked = true;
+            textBox1.Focus();
+
+
+
+
+
+
 
         }
 
@@ -158,6 +178,12 @@ namespace WindowsFormsExercice5Synthese
                 label11.ForeColor = Color.Red;
                 label11.Text = "Erreur";
             }
+
+            
+
+           
+
+            
 
         }
 
