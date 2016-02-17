@@ -15,6 +15,10 @@ namespace WindowsFormsExercice5Synthese
     {
         public Form1()
         {
+            double k = 0;
+            double n = 0;
+            double t = 0;
+
             InitializeComponent();
             label9.ForeColor = Color.Red;
             label7.ForeColor = Color.Red;
@@ -30,6 +34,13 @@ namespace WindowsFormsExercice5Synthese
             myList[4] = "Annuelle";
 
             listBox1.Items.AddRange(myList);
+
+            listBox1.SelectedItem = "Mensuelle";
+
+            
+
+
+
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -93,6 +104,7 @@ namespace WindowsFormsExercice5Synthese
                     label10.ForeColor = Color.Red;
                     label10.Text = "Erreur";
                 }
+               
             }
         }
 
@@ -103,14 +115,16 @@ namespace WindowsFormsExercice5Synthese
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text == "")
+            if ((textBox2.Text == "") | (label11.Text == "Erreur"))
             {
-                MessageBox.Show("Erreur\n \nEntrez le capital");
+                MessageBox.Show("Erreur de saisie du capital");
             }
             else
             {
                 MessageBox.Show("Saisie validée");
             }
+
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -141,6 +155,59 @@ namespace WindowsFormsExercice5Synthese
                 label11.Text = "Erreur";
             }
 
+        }
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            
+        }
+
+        private void hScrollBar1_ValueChanged(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedItem == "Mensuelle")
+            {
+
+                hScrollBar1.Value = (hScrollBar1.Value / 1) * 1;
+                label5.Text = hScrollBar1.Value.ToString();
+                label5.Visible = true;
+                hScrollBar1.LargeChange = 10;
+            }
+
+            if (listBox1.SelectedItem == "Bimestrielle")
+            {
+
+                hScrollBar1.Value = (hScrollBar1.Value / 2) * 2;
+                label5.Text = hScrollBar1.Value.ToString();
+                label5.Visible = true;
+                hScrollBar1.LargeChange = 20;
+            }
+
+            if (listBox1.SelectedItem == "Trimestrielle")
+            {
+
+                hScrollBar1.Value = (hScrollBar1.Value / 3) * 3;
+                label5.Text = hScrollBar1.Value.ToString();
+                label5.Visible = true;
+                hScrollBar1.LargeChange = 30;
+            }
+
+            if (listBox1.SelectedItem == "Semestrielle")
+            {
+
+                hScrollBar1.Value = (hScrollBar1.Value / 6) * 6;
+                label5.Text = hScrollBar1.Value.ToString();
+                label5.Visible = true;
+                hScrollBar1.LargeChange = 60;
+            }
+
+            if (listBox1.SelectedItem == "Annuelle")
+            {
+
+                hScrollBar1.Value = (hScrollBar1.Value / 12) * 12;
+                label5.Text = hScrollBar1.Value.ToString();
+                label5.Visible = true;
+                hScrollBar1.LargeChange = 120;
+            }
         }
     }
 }
