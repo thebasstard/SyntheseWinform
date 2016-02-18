@@ -15,6 +15,7 @@ namespace WindowsFormsExercice5Synthese
     {
         public Form1()
         {
+            
             double n = 0;
 
             //couleur remboursement
@@ -58,6 +59,7 @@ namespace WindowsFormsExercice5Synthese
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
+            label9.Text = "";
             if (radioButton1.Checked)
             {
 
@@ -66,6 +68,7 @@ namespace WindowsFormsExercice5Synthese
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
+            label9.Text = "";
             if (radioButton2.Checked)
             {
 
@@ -74,6 +77,7 @@ namespace WindowsFormsExercice5Synthese
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
+            label9.Text = "";
             if (radioButton3.Checked)
             {
 
@@ -82,6 +86,7 @@ namespace WindowsFormsExercice5Synthese
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            label9.Text = "";
             if (textBox1.Text != "")
             {
 
@@ -105,11 +110,12 @@ namespace WindowsFormsExercice5Synthese
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            label9.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            label9.Text = "";
             if ((textBox2.Text == "") | (label11.Text == "Erreur"))
             {
                 MessageBox.Show("Erreur de saisie du capital");
@@ -269,6 +275,7 @@ namespace WindowsFormsExercice5Synthese
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
+            label9.Text = "";
             Regex ReCapitalEmprunte = new Regex(@"^[0-9]{1,10}$"); 
 
             if (ReCapitalEmprunte.IsMatch(textBox2.Text))
@@ -296,11 +303,12 @@ namespace WindowsFormsExercice5Synthese
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
         {
-            
+            label9.Text = "";
         }
 
         private void hScrollBar1_ValueChanged(object sender, EventArgs e)
         {
+            label9.Text = "";
             //variable
             double n = 0;
 
