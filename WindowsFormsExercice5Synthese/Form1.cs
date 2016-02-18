@@ -15,7 +15,7 @@ namespace WindowsFormsExercice5Synthese
     {
         public Form1()
         {
-            
+            double n = 0;
 
             //couleur remboursement
             InitializeComponent();
@@ -38,16 +38,8 @@ namespace WindowsFormsExercice5Synthese
             //selection à l'ouverture de la page
             listBox1.SelectedItem = "Mensuelle";
             hScrollBar1.Value = 1;
-
-            //saisie utilisateur
-            
-
-            
-
-            
-
-
-        }
+           
+            }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -122,18 +114,133 @@ namespace WindowsFormsExercice5Synthese
             {
                 MessageBox.Show("Erreur de saisie du capital");
             }
+            else
+            {
+
+            
 
             //variables
             double k;
-            double n = 0;
-            double t = 0;
-            double t2 = 1 - t;
+            double n = 0;            
+            double t7 = 0.07;
+            double t8 = 0.08;
+            double t9 = 0.09;
+            double t77 = 1 + t7;
+            double t88 = 1 + t8;
+            double t99 = 1 + t9;
+            double MontantRemboursement = 0;
 
             //saisie utilisateur
             k = Convert.ToDouble(textBox2.Text);
 
-            //calcul du capital
-            double MontantRemboursement = (k * t) / (1 - Math.Pow(t2, (-n)));
+            //calcul du montant du remboursement
+            if (listBox1.SelectedItem == "Mensuelle")
+            {
+                n = hScrollBar1.Value;
+
+                if (radioButton1.Checked == true)
+                {
+                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
+                }
+
+                if (radioButton2.Checked == true)
+                {
+                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
+                }
+
+                if (radioButton3.Checked == true)
+                {
+                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
+                }
+
+            }
+
+            if (listBox1.SelectedItem == "Bimestrielle")
+            {
+                n = hScrollBar1.Value / 2;
+
+                if (radioButton1.Checked == true)
+                {
+                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
+                }
+
+                if (radioButton2.Checked == true)
+                {
+                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
+                }
+
+                if (radioButton3.Checked == true)
+                {
+                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
+                }
+            }
+
+            if (listBox1.SelectedItem == "Trimestrielle")
+            {
+                n = hScrollBar1.Value / 3;
+
+                if (radioButton1.Checked == true)
+                {
+                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
+                }
+
+                if (radioButton2.Checked == true)
+                {
+                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
+                }
+
+                if (radioButton3.Checked == true)
+                {
+                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
+                }
+            }
+
+            if (listBox1.SelectedItem == "Semestrielle")
+            {
+                n = hScrollBar1.Value / 6;
+
+                if (radioButton1.Checked == true)
+                {
+                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
+                }
+
+                if (radioButton2.Checked == true)
+                {
+                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
+                }
+
+                if (radioButton3.Checked == true)
+                {
+                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
+                }
+            }
+
+            if (listBox1.SelectedItem == "Annuelle")
+            {
+                n = hScrollBar1.Value / 12;
+
+                if (radioButton1.Checked == true)
+                {
+                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
+                }
+
+                if (radioButton2.Checked == true)
+                {
+                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
+                }
+
+                if (radioButton3.Checked == true)
+                {
+                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
+                }
+            }
+
+            
+            //affichage du montant des remboursements
+            label9.Text = MontantRemboursement.ToString();
+
+
+            }
 
 
 
@@ -194,60 +301,73 @@ namespace WindowsFormsExercice5Synthese
 
         private void hScrollBar1_ValueChanged(object sender, EventArgs e)
         {
+            //variable
+            double n = 0;
+
+            //affichage durée en mois de remboursement
             if (listBox1.SelectedItem == "Mensuelle")
             {
 
+                n = hScrollBar1.Value;
                 hScrollBar1.Value = (hScrollBar1.Value / 1) * 1;
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 10;
+                hScrollBar1.SmallChange = 1;
                 hScrollBar1.Minimum = 0;
                 hScrollBar1.Maximum = 209;
             }
 
             if (listBox1.SelectedItem == "Bimestrielle")
             {
-
+                n = hScrollBar1.Value / 2;
                 hScrollBar1.Value = (hScrollBar1.Value / 2) * 2;
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 20;
+                hScrollBar1.SmallChange = 2;
                 hScrollBar1.Minimum = 0;
                 hScrollBar1.Maximum = 219;
             }
 
             if (listBox1.SelectedItem == "Trimestrielle")
             {
-
+                n = hScrollBar1.Value / 3;
                 hScrollBar1.Value = (hScrollBar1.Value / 3) * 3;
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 30;
+                hScrollBar1.SmallChange = 3;
                 hScrollBar1.Minimum = 0;
                 hScrollBar1.Maximum = 229;
             }
 
             if (listBox1.SelectedItem == "Semestrielle")
             {
-
+                n = hScrollBar1.Value / 6;
                 hScrollBar1.Value = (hScrollBar1.Value / 6) * 6;
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
                 hScrollBar1.LargeChange = 60;
+                hScrollBar1.SmallChange = 6;
                 hScrollBar1.Minimum = 0;
                 hScrollBar1.Maximum = 259;
             }
 
             if (listBox1.SelectedItem == "Annuelle")
             {
-
+                n = hScrollBar1.Value / 12;
                 hScrollBar1.Value = (hScrollBar1.Value / 12) * 12;
                 label5.Text = hScrollBar1.Value.ToString();
                 label5.Visible = true;
-                hScrollBar1.LargeChange = 120;               
+                hScrollBar1.LargeChange = 120;
+                hScrollBar1.SmallChange = 12;
                 hScrollBar1.Minimum = 0;
                 hScrollBar1.Maximum = 319;
             }
+
+            //affichage du nombre de remboursements
+            label7.Text = n.ToString();
         }
     }
 }
