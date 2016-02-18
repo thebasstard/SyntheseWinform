@@ -15,17 +15,15 @@ namespace WindowsFormsExercice5Synthese
     {
         public Form1()
         {
-            
-            double n = 0;
 
-            //couleur remboursement
+            //couleur de police du remboursement
             InitializeComponent();
             label9.ForeColor = Color.Red;
             label7.ForeColor = Color.Red;
             label12.ForeColor = Color.Red;
 
-            
-            //contenu listbox1
+
+            //contenu du listbox1
             string[] myList = new string[5];
 
             myList[0] = "Mensuelle";
@@ -39,8 +37,8 @@ namespace WindowsFormsExercice5Synthese
             //selection à l'ouverture de la page
             listBox1.SelectedItem = "Mensuelle";
             hScrollBar1.Value = 1;
-           
-            }
+
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -49,12 +47,12 @@ namespace WindowsFormsExercice5Synthese
 
         private void label7_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label9_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -104,7 +102,7 @@ namespace WindowsFormsExercice5Synthese
                 {
                     label10.Visible = false;
                 }
-               
+
             }
         }
 
@@ -123,134 +121,134 @@ namespace WindowsFormsExercice5Synthese
             else
             {
 
-            
 
-            //variables
-            double k;
-            double n = 0;            
-            double t7 = 0.07;
-            double t8 = 0.08;
-            double t9 = 0.09;
-            double t77 = 1 + t7;
-            double t88 = 1 + t8;
-            double t99 = 1 + t9;
-            double MontantRemboursement = 0;
 
-            //saisie utilisateur
-            k = Convert.ToDouble(textBox2.Text);
+                //variables
+                double k;
+                double n = 0;
+                double t7 = 0.07;
+                double t8 = 0.08;
+                double t9 = 0.09;
+                double MontantRemboursement = 0;
 
-            //calcul du montant du remboursement
-            if (listBox1.SelectedItem == "Mensuelle")
-            {
-                n = hScrollBar1.Value;
+                //saisie utilisateur
+                k = Convert.ToDouble(textBox2.Text);
 
-                if (radioButton1.Checked == true)
+                //calcul du montant du remboursement
+                if (listBox1.SelectedItem == "Mensuelle")
                 {
-                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
+                    n = Convert.ToUInt32(label7.Text);
+
+                    if (radioButton1.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t7 / 12)) / (1 - (Math.Pow((1 + t7 / 12), (-n))));
+                    }
+                    if (radioButton2.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t8 / 12)) / (1 - (Math.Pow((1 + t8 / 12), (-n))));
+                    }
+
+                    if (radioButton3.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t9 / 12)) / (1 - (Math.Pow((1 + t9 / 12), (-n))));
+                    }
+
+
+                }
+                if (listBox1.SelectedItem == "Bimestrielle")
+                {
+                    
+                    n = Convert.ToUInt32(label7.Text);
+
+                    if (radioButton1.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t7 / 6)) / (1 - (Math.Pow((1 + t7 / 6), (-n))));
+                    }
+
+                    if (radioButton2.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t8 / 6)) / (1 - (Math.Pow((1 + t8 / 6), (-n))));
+                    }
+
+                    if (radioButton3.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t9 / 6)) / (1 - (Math.Pow((1 + t9 / 6), (-n))));
+                    }
                 }
 
-                if (radioButton2.Checked == true)
+                if (listBox1.SelectedItem == "Trimestrielle")
                 {
-                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
+                    
+                    n = Convert.ToUInt32(label7.Text);
+
+                    if (radioButton1.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t9 / 4)) / (1 - (Math.Pow((1 + t9 / 4), (-n))));
+                    }
+
+                    if (radioButton2.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t8 / 4)) / (1 - (Math.Pow((1 + t8 / 4), (-n))));
+                    }
+
+                    if (radioButton3.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t9 / 4)) / (1 - (Math.Pow((1 + t9 / 4), (-n))));
+                    }
                 }
 
-                if (radioButton3.Checked == true)
+                if (listBox1.SelectedItem == "Semestrielle")
                 {
-                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
-                }
+                    n = Convert.ToUInt32(label7.Text);
 
+                    if (radioButton1.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t7 / 2)) / (1 - (Math.Pow((1 + t7 / 2), (-n))));
+                    }
+                    if (radioButton2.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t8 / 2)) / (1 - (Math.Pow((1 + t8 / 2), (-n))));
+                    }
+
+                    if (radioButton3.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t9 / 2)) / (1 - (Math.Pow((1 + t9 / 2), (-n))));
+                    }
+
+                }
+                if (listBox1.SelectedItem == "Annuelle")
+                {
+                    n = Convert.ToUInt32(label7.Text);
+
+                    if (radioButton1.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t7)) / (1 - (Math.Pow((1 + t7), (-n))));
+                    }
+
+                    if (radioButton2.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t8)) / (1 - (Math.Pow((1 + t8), (-n))));
+                    }
+
+                    if (radioButton3.Checked == true)
+                    {
+                        MontantRemboursement = (k * (t9)) / (1 - (Math.Pow((1 + t9), (-n))));
+                    }
+
+                }
+                //affichage du montant des remboursements
+                label9.Text = MontantRemboursement.ToString();
             }
-
-            if (listBox1.SelectedItem == "Bimestrielle")
-            {
-                n = hScrollBar1.Value / 2;
-
-                if (radioButton1.Checked == true)
-                {
-                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
-                }
-
-                if (radioButton2.Checked == true)
-                {
-                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
-                }
-
-                if (radioButton3.Checked == true)
-                {
-                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
-                }
-            }
-
-            if (listBox1.SelectedItem == "Trimestrielle")
-            {
-                n = hScrollBar1.Value / 3;
-
-                if (radioButton1.Checked == true)
-                {
-                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
-                }
-
-                if (radioButton2.Checked == true)
-                {
-                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
-                }
-
-                if (radioButton3.Checked == true)
-                {
-                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
-                }
-            }
-
-            if (listBox1.SelectedItem == "Semestrielle")
-            {
-                n = hScrollBar1.Value / 6;
-
-                if (radioButton1.Checked == true)
-                {
-                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
-                }
-
-                if (radioButton2.Checked == true)
-                {
-                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
-                }
-
-                if (radioButton3.Checked == true)
-                {
-                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
-                }
-            }
-
-            if (listBox1.SelectedItem == "Annuelle")
-            {
-                n = hScrollBar1.Value / 12;
-
-                if (radioButton1.Checked == true)
-                {
-                     MontantRemboursement = (k * t7) / (1 - Math.Pow(t77, (-n)));
-                }
-
-                if (radioButton2.Checked == true)
-                {
-                     MontantRemboursement = (k * t8) / (1 - Math.Pow(t88, (-n)));
-                }
-
-                if (radioButton3.Checked == true)
-                {
-                     MontantRemboursement = (k * t9) / (1 - Math.Pow(t99, (-n)));
-                }
-            }
-
-            
-            //affichage du montant des remboursements
-            label9.Text = MontantRemboursement.ToString();
-
-
-            }
-
-
-
         }
+
+
+
+
+
+
+
+
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -276,7 +274,7 @@ namespace WindowsFormsExercice5Synthese
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             label9.Text = "";
-            Regex ReCapitalEmprunte = new Regex(@"^[0-9]{1,10}$"); 
+            Regex ReCapitalEmprunte = new Regex(@"^[0-9]{1,10}$");
 
             if (ReCapitalEmprunte.IsMatch(textBox2.Text))
             {
@@ -293,11 +291,11 @@ namespace WindowsFormsExercice5Synthese
                 label11.Text = "Erreur";
             }
 
-            
 
-           
 
-            
+
+
+
 
         }
 
@@ -309,6 +307,14 @@ namespace WindowsFormsExercice5Synthese
         private void hScrollBar1_ValueChanged(object sender, EventArgs e)
         {
             label9.Text = "";
+
+            //seulement 2 chiffres apres la virgule
+            Regex ReMontant = new Regex(@"^[0-9]{1,10}(,)[0-9]{2}$");
+
+
+
+
+
             //variable
             double n = 0;
 
