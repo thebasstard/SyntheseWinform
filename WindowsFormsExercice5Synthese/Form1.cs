@@ -134,7 +134,7 @@ namespace WindowsFormsExercice5Synthese
                 //saisie utilisateur
                 k = Convert.ToDouble(textBox2.Text);
 
-                //calcul du montant du remboursement
+                //calcul du montant du remboursement   
                 if (listBox1.SelectedItem == "Mensuelle")
                 {
                     n = Convert.ToUInt32(label7.Text);
